@@ -113,6 +113,13 @@ public partial class Vista_Login : System.Web.UI.Page
     }
     protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
     {
+
+
+    }
+
+
+    protected void btnLogin_Click(object sender, EventArgs e)
+    {
         if (this.DdlTipo.Text == "SELECCIONAR")
         {
             Response.Write("Seleccione Tipo de Usuario");
@@ -153,12 +160,14 @@ public partial class Vista_Login : System.Web.UI.Page
                 //inicia.aGREGARUSUARIOSToolStripMenuItem.Enabled = false;
 
 
-                HttpCookie cookierol = new HttpCookie("UserSettings");
-                cookierol["Rol"] = DdlTipo.Text;
-                cookierol["Usuario"] = TxtUsuario.Text;
-
+                HttpCookie cookierol = new HttpCookie("Rol");
+                cookierol.Value = DdlTipo.Text;
                 Response.Cookies.Add(cookierol);
 
+
+                HttpCookie cookieuser = new HttpCookie("Usuario");
+                cookieuser.Value = TxtUsuario.Text;
+                Response.Cookies.Add(cookieuser);
 
                 Response.Redirect("Menu.aspx?parametro=" + TxtUsuario.Text + "  *** " + " Rol: " + DdlTipo.Text);
 
@@ -199,8 +208,5 @@ public partial class Vista_Login : System.Web.UI.Page
                 veces = veces + 1;
             }
         }
-
     }
-
-
 }

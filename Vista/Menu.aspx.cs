@@ -15,11 +15,19 @@ public partial class Vista_Menu : System.Web.UI.Page
     {
 
       
-        if (Request.Params["parametro"] != null)
-        {
-            Label4.Text = Request.Params["parametro"];
-        }
+        //if (Request.Params["parametro"] != null)
+        //{
+        //    Label4.Text = Request.Params["parametro"];
+        //}
 
+        if (Request.Cookies["Usuario"] != null)
+        {
+            Label3.Text = Request.Cookies["Usuario"].Value;
+        }
+        if (Request.Cookies["Rol"] != null)
+        {
+            Label4.Text = Request.Cookies["Rol"].Value;
+        }
 
     }
     protected void Button1_Click(object sender, EventArgs e)
