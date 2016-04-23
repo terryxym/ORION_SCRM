@@ -1,0 +1,77 @@
+﻿body {
+}
+#login {
+ 
+  background-color: aliceblue;
+    padding-left: 200px;
+    margin-left: 418px;
+   margin-top:10px;
+    padding-top: 167px;
+    border-color: aqua;
+    border-bottom-style: solid;
+    border-bottom-color: #009688;
+    border-left-color: #009688;
+    border-top-color: #009688;
+    border-right-color: #009688;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+  
+    border-left-style: solid;
+    border-top-style: solid;
+    border-right-style: solid;
+    margin-bottom: -138px;
+  
+
+}
+
+#login2{
+ margin-top: -62px;
+    margin-left: -115px;
+}
+
+#BtnIngresar{
+    background-color: #009688;
+    margin-left: -35px;
+    margin-top: 29px;
+    height: 58px;
+    width: 150px;
+    font-size: xx-large;
+    color: White;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+
+}
+
+#titulologin2{
+          margin-top: -127px;
+    margin-left: -196px;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+#BtnGestionUsuarios
+{
+   height: 165px;
+    width: 215px;
+    background-color: #FF9800;
+    font-size: larger;
+    color: white;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-left: 287px;
+}
+#BtnGestionClientes{
+    height: 165px;
+    width: 215px;
+    background-color: #009688;
+    font-size: larger;
+    color: white;
+    font-weight: bold;
+    margin-left: 287px;
+    margin-top: 10px;
+}
