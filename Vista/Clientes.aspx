@@ -14,6 +14,7 @@
      </div>
     <form id="form1" runat="server">
         <a style="
+
     text-align: center;
     margin-left: 574px;
     font-size: x-large;
