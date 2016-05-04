@@ -27,5 +27,7 @@ public partial class Vista_Clientes : System.Web.UI.Page
     protected void ImageButton2_Click(object sender, ImageClickEventArgs e)
     {
         Response.Redirect("FichaCliente.aspx");
+
+        
     }
 }

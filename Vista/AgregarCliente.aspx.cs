@@ -21,11 +21,11 @@ public partial class Vista_AgregarUsuario : System.Web.UI.Page
         TxtSegundoNombre.Text = "";
         TxtPrimerApellido.Text = " ";
         TxtSegundoApellido.Text = " ";
-        DDLTipoIdentificacion.Text = "SELECCIONE EL TIPO DE IDENTIFICACIÓN";
+        DDlTipoIdentificacion.Text = "SELECCIONE EL TIPO DE IDENTIFICACIÓN";
         TxtTelefono.Text = " ";
         TxtCelular.Text = " ";
         TxtEmail.Text = " ";
-        DDLTipo.Text = "SELECCIONE LA CLASIFICACIÓN";
+        DDlClasificacion.Text = "SELECCIONE LA CLASIFICACIÓN";
         
 
 
@@ -153,7 +153,7 @@ public partial class Vista_AgregarUsuario : System.Web.UI.Page
  
     //}
 
-    protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
+    protected void BtnEnviar_Click(object sender, EventArgs e)
     {
         {
             EntidadCliente cli = new EntidadCliente();
@@ -194,7 +194,7 @@ public partial class Vista_AgregarUsuario : System.Web.UI.Page
                 return;
 
             }
-            if (this.DDLTipoIdentificacion.Text.Trim().Length == 0)
+            if (this.DDlTipoIdentificacion.Text.Trim().Length == 0)
             {
                 //Response.Write("<script>window.alert('Ingrese Rol');</script>");
 
@@ -226,7 +226,7 @@ public partial class Vista_AgregarUsuario : System.Web.UI.Page
                 LbMensaje.Text = "Debe escribir correo electrónico";
                 return;
             }
-            if (this.DDLTipo.Text.Trim().Length == 0)
+            if (this.DDlClasificacion.Text.Trim().Length == 0)
             {
                 //Response.Write("<script>window.alert('Ingrese Rol');</script>");
 
@@ -241,11 +241,11 @@ public partial class Vista_AgregarUsuario : System.Web.UI.Page
                 cli.SegundoNombreCliente = TxtSegundoNombre.Text.Trim();
                 cli.PrimerApellidoCliente = TxtPrimerApellido.Text.Trim();
                 cli.SegundoApellidoCliente = TxtSegundoApellido.Text.Trim();
-                cli.TipoIdentificacion = DDLTipoIdentificacion.Text.Trim();
+                cli.TipoIdentificacion = DDlTipoIdentificacion.Text.Trim();
                 cli.Telefono = TxtTelefono.Text.Trim();
                 cli.Celular = TxtCelular.Text.Trim();
                 cli.Email = TxtEmail.Text.Trim();
-                cli.Clasificacion = DDLTipo.Text.Trim();
+                cli.Clasificacion = DDlClasificacion.Text.Trim();
 
 
 

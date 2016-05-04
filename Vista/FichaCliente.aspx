@@ -1,11 +1,20 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="FichaCliente.aspx.cs" Inherits="Vista_FichaCliente" %>
 
 <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-     <title></title>
+    <meta http-equiv="Content-Type" content="text/html">
+    <title>Orion CRM - Ficha Cliente </title>
+    <meta name="author" content="Jake Rocheleau">
+    
+    <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" media="all" href="css/switchery.min.css">
+    <script type="text/javascript" src="js/switchery.min.js"></script>
+    <script src="../Styles/ThemeFormClienteFicha/js/switchery.min.js"></script>
+    <link href="../Styles/ThemeFormClienteFicha/css/styles.css" rel="stylesheet" />
+    <link href="../Styles/ThemeFormClienteFicha/css/switchery.min.css" rel="stylesheet" />
      <script src="jquery-1.3.2.min.js" type="text/javascript"></script>
      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="../Scripts/jquery-1.11.3.min.js"></script>
@@ -21,21 +30,25 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"/>
     <link href="../Styles/StyleSheet.css" rel="stylesheet" />
 
+
     <script>
 
         $(function () {
             $("#TxtCalendario").datepicker({
                 //altField: "#TxtCalendario",
-               
+
                 //beforeShowDay: noExcursion,
                 showOtherMonths: true,
-                numberOfMonths: 1,
+                //numberOfMonths: 1,
+                changeMonth: true,
+                changeYear: true,
                 selectOtherMonths: true,
-                minDate: '+0D',
-                                maxDate: '+1M',
+                
+                //minDate: '+0D',
+                //maxDate: '+1M',
                 //dateFormat: " DD, d MM, yy",
 
-               
+
             });
         });
 
@@ -46,10 +59,15 @@
 
                 //beforeShowDay: noExcursion,
                 showOtherMonths: true,
-                numberOfMonths: 1,
+                //numberOfMonths: 1,
+                selectOtherMonths: true,
+                //minDate: '+D',
+                //maxDate: '+1M',
+                changeMonth: true,
+                changeYear: true,
                 selectOtherMonths: true,
                 minDate: '+0D',
-                maxDate: '+1M',
+                maxDate: '+72M',
                 //dateFormat: " DD, d MM, yy",
 
 
@@ -58,15 +76,18 @@
 
         $(function () {
             $("#TxtFechaProximaLlamada").datepicker({
-                //altField: "#TxtCalendario",
+                altField: "#TxtFechaProximaLlamada",
 
                 //beforeShowDay: noExcursion,
-                showOtherMonths: true,
-                numberOfMonths: 1,
-                selectOtherMonths: true,
+                //showOtherMonths: true,
+                //numberOfMonths: 1,
+                //selectOtherMonths: true,
                 minDate: '+0D',
-                maxDate: '+1M',
+                maxDate: '+0M',
                 //dateFormat: " DD, d MM, yy",
+              
+                dateFormat: " DD, d MM, yy",
+
 
 
             });
@@ -79,10 +100,14 @@
 
                 //beforeShowDay: noExcursion,
                 showOtherMonths: true,
-                numberOfMonths: 1,
+                //numberOfMonths: 1,
                 selectOtherMonths: true,
-                minDate: '+0D',
-                maxDate: '+1M',
+                //minDate: '+D',
+                //maxDate: '+1M',
+                changeMonth: true,
+                changeYear: true,
+                selectOtherMonths: true,
+                yearRange: '-100:-6',
                 //dateFormat: " DD, d MM, yy",
 
 
@@ -95,11 +120,14 @@
 
                 //beforeShowDay: noExcursion,
                 showOtherMonths: true,
-                numberOfMonths: 1,
+                //numberOfMonths: 1,
                 selectOtherMonths: true,
-                minDate: '+0D',
-                maxDate: '+1M',
-                //dateFormat: " DD, d MM, yy",
+                //minDate: '+D',
+                //maxDate: '+1M',
+                changeMonth: true,
+                changeYear: true,
+                selectOtherMonths: true,
+                yearRange: '-100:-6',
 
 
             });
@@ -116,8 +144,8 @@
         //    var day = date.getDay();
 
 
-            // aqui indicamos el numero correspondiente a los dias que ha de bloquearse (el 0 es Domingo, 1 Lunes, etc...) en el ejemplo bloqueo todos menos los lunes y jueves.
-            //return [(day != 0 && day != 6 && day != 2 && day != 4), ''];
+        // aqui indicamos el numero correspondiente a los dias que ha de bloquearse (el 0 es Domingo, 1 Lunes, etc...) en el ejemplo bloqueo todos menos los lunes y jueves.
+        //return [(day != 0 && day != 6 && day != 2 && day != 4), ''];
 
         //};
 
@@ -145,211 +173,206 @@
             $("#TxtCalendario").datepicker();
         });
     </script>
+
     <style type="text/css">
-        .auto-style3 {
-            width: 251px;
+        
+        
+        
+        .ui-datepicker {
+            width: 300px;
+            height:230px;
+            background:#ffffff;
+            font-size: 16px;
+
+
+         
         }
-        .auto-style6 {
-            text-align: center;
-            width: 130px;
-        }
-        .auto-style7 {
-            width: 130px;
-        }
-        .auto-style8 {
-            width: 135px;
-        }
-        #TextArea1 {
-            height: 106px;
-            width: 481px;
-        }
-        .auto-style9 {
-            width: 75px;
-        }
+
+      
+         
+
+     .ui-datepicker th{
+         color:#808080;
+         font-size: .9em;
+     }
+
+
+     .ui-datepicker .ui-state-default 
+     {
+         background:#4cff00;
+         color:#0026ff;
+    
+     }
+
+     .ui-datepicker .ui-datepicker-header
+     {
+         background:#e8e1e1;
+         color:#000000;
+
+     }
+
+
+     .ui-datepicker .ui-state-active{
+         background:orange;
+         color:#ff6a00;
+     }
+       
     </style>
 
 </head>
+
+
+
+
 <body>
-    
-    <form id="form1" runat="server">
+    <div class="header">
 
-
-            
-        <div>
-
- <img src="../Images/login2.png" style="width: 100%; height: 53px;padding-bottom: 0px;" />
-            <div><p>
-                    Buscar Cliente
-                </p>
-
-                <asp:TextBox ID="TxtIdentificacionBuscar" runat="server" style="width: 128px"></asp:TextBox>
-                <asp:Button ID="BtnBuscarCliente" runat="server" OnClick="Button1_Click" Text="Buscar Cliente Sin Ficha" Width="208px" />
-                <p>
-                    Identificación:
-                    <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Buscar Cliente con Ficha" />
-                </p>
-
-            </div>
-        </div>
-    <p style="text-align:center; font-size:x-large;font-weight:bold">
-        Ficha Clientes
-    </p>
-
-
-            
-    <%-- <div style="background-color: #CDDC39;height:30px;text-align: center;padding-top: 23px;font-weight: bold;font-size: large;color: #9E9E9E;border-top-left-radius: 49px;border-top-right-radius: 49px;width: 925px;margin-left: 231px;margin-right: auto;/* padding-bottom: 18px; */border-bottom-left-radius: 49px;border-bottom-right-radius: 49px;">
-           
-        <a href="#" id="ficha" >Ficha Principal Cliente</a>
        
-        </div>
-             <section id="showficha" style=" display:none">--%>
+        <asp:Label ID="LbUsuario" runat="server" Text="Label" style="
+    font-size: 12px;
+    font-weight: bold; margin-top:13px; position:absolute; margin-left:72px"></asp:Label>
 
-<a href="#" id="ocultaficha" style="
-    margin-left: 152px;
+
+       
+
+            <asp:Label ID="LbRol" runat="server" Text="Label" style="
+    font-size: 12px;
     font-weight: bold;
-    color: #F44336;
-    font-size: large;">Ocultar</a>
+    margin-top: 34px;
+    position:absolute;
+    margin-left: 38px;
+"></asp:Label>
+
+
+        <asp:Label ID="LbUsuarioText" runat="server" Text="USUARIO:" style="
+    font-size: 14px;
+    font-weight: bold;
+    position: absolute;
+    margin-top: 10px;
+"></asp:Label>
+        <asp:Label ID="LbRolText" runat="server" Text="ROL:" style="
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 32px;
+    position: absolute;
+   "></asp:Label>
+    </div>
+
+
+
+      
     
-        <table style="
-    margin-top: 1px;
-    margin-left: 113px;
-    width: 89%;
-    height: 500px;
-    ">
+              
+   
+    <%--<div id="wrapper">--%>
+      
+            
+         <h1>Ficha Cliente</h1>
+            <h1 style="margin-top: 39%;position: absolute; margin-left: 30%;">Información Familiar</h1>
+                 <h1 style="margin-top: 64%;position: absolute; margin-left: 30%;">Información Visa</h1>
+                    <h1 style=" margin-top: 79%; position: absolute;  margin-left: 30%;">Seguimiento Cliente</h1>
+ 
 
-            <tr style="background-color:#2196F3">
-                
-                <td class="auto-style6" style="border-top-left-radius:33px; text-align:center; border-top-right-radius:33px; font-weight:bold">
-                   
-                    <p style="
-    font-weight: bold;
-    text-align: center;">
-                        Primer Nombre:
-                    </p>
-                    <asp:TextBox ID="TxtPrimerNombre" runat="server" style="width:154px;text-align: center;margin-left: 26px;margin-right: 33px; background-color:#9E9E9E"  ReadOnly="True"></asp:TextBox>
-                </td>
-                
-                <td class="auto-style9" style="border-top-left-radius:33px; border-top-right-radius:33px">
-                    <p style="
-    font-weight: bold;
-    text-align: center;">
-                        Segundo Nombre:
-                    </p>
+        <form runat="server" >
 
-                    <asp:TextBox ID="TxtSegundoNombre" runat="server" style="text-align:center; margin-left: 123px;margin-right: 33px; Height:16px; Width:154px;  background-color:#9E9E9E ;margin-bottom:10px;" ReadOnly="True"></asp:TextBox>
+         
 
-                </td>
-                
-                <td class="auto-style3" style="border-top-left-radius:33px; border-top-right-radius:33px">
-                    <p style="
-    font-weight: bold;
-    text-align: center;">
-                        Primer Apellido:
-                    </p>
-                    <asp:TextBox ID="TxtPrimerApellido" runat="server" style="width:154px;text-align: center;margin-left: 54px;margin-right: 33px;" ReadOnly="True"></asp:TextBox>
+             <asp:Label ID="LbMensajeError" runat="server" Text="Label"></asp:Label>
+    
+     <asp:Button  id="BuscarClienteSinFicha"  runat="server" Text="Buscar Cliente Sin Ficha" OnClick="BuscarClienteSinFicha_Click1" />
+        <asp:Button runat="server" ID="BuscarClienteConFicha"  Text="Buscar Cliente con Ficha" OnClick="BuscarClienteConFicha_Click1" />
 
-                </td>
-               
-                <td class="auto-style8" style="border-top-left-radius:33px; border-top-right-radius:33px">
-                    <p style="
-    font-weight: bold;
-    text-align: center;">
-                        Segundo Apellido:
-                    </p>
-                    
-                    <asp:TextBox ID="TxtSegundoApellido" runat="server" style="width:154px;text-align: center; background-color:#9E9E9E;margin-left: 67px;margin-right: 33px;" ReadOnly="True"></asp:TextBox>
+      <asp:TextBox runat="server" placeholder="Ingrese Cedula, Teléfono o Nombre" ID="TxtIdentificacionBuscar" ></asp:TextBox>
 
-                </td>
-            </tr>
-            <tr style="background-color:#2196F3">
-               
-                <td class="auto-style7">
-                    <p style="
-    font-weight: bold;
-    text-align: center;">
-                        Fecha de Nacimiento:
-                    </p>
-                    
 
-                    <asp:TextBox ID="TxtFechaNacimientoCliente" runat="server" style="width:154px;text-align: center;margin-left: 26px; margin-bottom:10px;margin-right: 33px;"></asp:TextBox>
+            <div class="col-2">
+                <label>
+                    Primer Nombre
+	 
+                    <asp:TextBox runat="server" placeholder="Primer Nombre" ID="TxtPrimerNombre" name="name" tabindex="1"></asp:TextBox>
+                </label>
+            </div>
+            <div class="col-2">
+                <label>
+                    Segundo Nombre
+	 
+                    <asp:TextBox runat="server" placeholder="Segundo Nombre" id="TxtSegundoNombre" name="name" tabindex="2"></asp:TextBox>
+                </label>
+            </div>
+            <div class="col-2">
+                <label>
+                    Primer Apellido
+	 
+                    <asp:TextBox runat="server" placeholder="Primer Apellido" id="TxtPrimerApellido" name="name" tabindex="3"></asp:TextBox>
+                </label>
+            </div>
+            <div class="col-2">
+                <label>
+                    Segundo Apellido
+	 
+                    <asp:TextBox runat="server" placeholder="Segundo Apellido" id="TxtSegundoApellido" name="company" tabindex="4"></asp:TextBox>
+                </label>
+            </div>
+            <div class="col-2">
+                <label>
+                    Fecha de Nacimiento
+	 
+                    <asp:TextBox runat="server" placeholder="Fecha de Nacimiento" id="TxtFechaNacimientoCliente" name="name" tabindex="5"></asp:TextBox>
+                </label>
+            </div>
+            <div class="col-2">
+                <label>
+                    Identificacion
+	 
+                    <asp:TextBox runat="server" placeholder="Identificacion" id="TxtIdentificacion" name="name" tabindex="6"></asp:TextBox>
+                </label>
+            </div>
+            <div class="col-2">
+                <label>
+                    Tipo de Identificacion
+	 
+                    <asp:TextBox runat="server" placeholder="Tipo de Identificacion" id="TxtTipoIdentificacion" name="name" tabindex="7"></asp:TextBox>
+                </label>
+            </div>
+            <div class="col-2">
+                <label>
+                    Edad
+	 
+                    <asp:TextBox runat="server" placeholder="Edad" id="TxtEdad" name="company" tabindex="8"></asp:TextBox>
+                </label>
+            </div>
 
-                </td>
-               
-                <td class="auto-style9" style="font-weight:bold; text-align:center">
-
-                    <p style="
-    font-weight: bold;
-    text-align: center;">
-                        Identificación:
-                    </p>
-                    
-
-                    <asp:TextBox ID="TxtIdentificacion" runat="server" style="width:154px;text-align: center;margin-left: 26px; background-color:#9E9E9E; margin-right: 33px;" ReadOnly="True"></asp:TextBox>
-
-                </td>
-                
-                <td class="auto-style3">
-                    <p style="
-    font-weight: bold;
-    text-align: center;">
-                        Tipo de Identificación:
-                        
-                    </p>
-                    <asp:TextBox ID="TxtTipoIdentificacion" runat="server" Style="margin-left:43px; background-color:#9E9E9E" ReadOnly="True"></asp:TextBox>
-                </td>
-                
-                <td class="auto-style8">
-                    <p style="
-    font-weight: bold;
-    text-align: center;">
-                        Edad:
-                    </p>
-                    
-                    <asp:TextBox ID="TxtEdad" runat="server" style="text-align: center;margin-left: 100px;margin-right: 100px;" Width="56px"></asp:TextBox>
-
-                </td>
-            </tr>
-            <tr style="background-color:#2196F3">
-                
-                <td class="auto-style7" >
-                    <p style="
-    font-weight: bold;
-    text-align: center;">
-                        Genero:
-                    </p>
-                    
-                    <asp:RadioButtonList ID="RblGenero" runat="server" style="width:154px;text-align: center;margin-left: 
-    18px;margin-right: 33px;">
+            <div class="col-2">
+                <label>
+                    Genero
+	 
+                    <asp:DropDownList ID="RblGenero" runat="server" RepeatDirection="Horizontal" style=" width: 133px; text-align: center; margin-left: 54px; margin-right: 33px; height: 20px; color: black; font-weight: 900; opacity: initial;">
+                        <asp:ListItem></asp:ListItem>
                         <asp:ListItem>Hombre</asp:ListItem>
-                        <asp:ListItem >Mujer</asp:ListItem>
-                    </asp:RadioButtonList>
-
-                </td>
-                
-                <td class="auto-style9">
-                    <p style="
-    font-weight: bold;
-    text-align: center;">
-                        Estado Civil:
-                    </p>
-                    
-                    <asp:RadioButtonList ID="RBLEstadoCivil" runat="server" style="
-    margin-left: 134px;" >
+                        <asp:ListItem Value="Mujer">Mujer</asp:ListItem>
+                        <asp:ListItem>Otro</asp:ListItem>
+                    </asp:DropDownList>
+                </label>
+            </div>
+            <div class="col-2">
+                <label>
+                    Estado Civil
+                    <asp:DropDownList ID="RBLEstadoCivil" runat="server"  RepeatDirection="Horizontal"  style=" width: 133px; text-align: center; margin-left: 54px; margin-right: 33px; height: 20px; color: black; font-weight: 900; opacity: initial;">
+                        <asp:ListItem></asp:ListItem>
                         <asp:ListItem>Soltero</asp:ListItem>
                         <asp:ListItem>Casado</asp:ListItem>
                         <asp:ListItem>Otro</asp:ListItem>
-                    </asp:RadioButtonList>
+                    </asp:DropDownList>
+	 
+<%--                    <input placeholder="Estado Civil" id="RBLEstadoCivil" name="name" tabindex="10">--%>
+                </label>
+            </div>
+            <div class="col-2">
+                <label>
+                    Nacionalidad 
 
-                </td>
-                
-                <td class="auto-style3">
-                    <p style="
-    font-weight: bold;
-    text-align: center;">
-                        Nacionalidad:
-                    </p>
-                    
-                    <asp:DropDownList ID="DDLNacionalidad" runat="server" style="width:154px;text-align: center;margin-left: 54px;margin-right: 33px; height:27px">
+	 <asp:DropDownList ID="DDLNacionalidad" runat="server" style="width:110px;text-align: center;margin-left: 70px;margin-right: 33px;height:20px;color: black;font-weight: 900;opacity: initial;">
+                        <asp:ListItem></asp:ListItem>
                         <asp:ListItem>Colombiana</asp:ListItem>
                         <asp:ListItem>Española</asp:ListItem>
                         <asp:ListItem>Mexicana</asp:ListItem>
@@ -359,359 +382,306 @@
                         <asp:ListItem>Venezolana</asp:ListItem>
                         <asp:ListItem>Ecuatoriana</asp:ListItem>
                     </asp:DropDownList>
-
-                </td>
-                
-                <td class="auto-style8">
-                    <p style="
-    font-weight: bold;
-    text-align: center;">
-                        Telefono:
-                    </p>
-                    
-                    <asp:TextBox ID="TxtTelefono" runat="server" style="width:154px;text-align: center; background-color:#9E9E9E;margin-left: 67px;" ReadOnly="True"></asp:TextBox>
-
-                </td>
-            </tr>
-            <tr style="background-color:#2196F3">
-               
-                <td class="auto-style7">
-                    <p style="
-    font-weight: bold;
-    text-align: center;">
-                        Celular:
-                    </p>
-                    
-                    <asp:TextBox ID="TxtCelular" runat="server" style="width:154px; margin-bottom:10px;background-color:#9E9E9E; margin-left: 26px;margin-right: 33px;" ReadOnly="True"></asp:TextBox>
-
-                </td>
-               
-                <td class="auto-style9">
-                    <p style="
-    font-weight: bold;
-    text-align: center;">
-                        Direccion de Residencia:
-                    </p>
-                   
-                    <asp:TextBox ID="TxtDireccionResidencia" runat="server" Width="349px" style="text-align: center;margin-left: 26px;margin-right: 33px;"></asp:TextBox>
-
-                </td>
-                
-                <td class="auto-style3">
-                    <p style="
-    font-weight: bold;
-    text-align: center;">
-                        Ciudad:
-                    </p>
-                    
-                    <asp:DropDownList ID="DDLCiudad" runat="server" style="width:154px;text-align: center;margin-left: 54px; height:27px; margin-right: 33px;" DataSourceID="SqlDataSource2" DataTextField="NombreCiudad" DataValueField="NombreCiudad">
+                    <%--<input placeholder="Nacionalidad" id="DDLNacionalidad" name="name" tabindex="11">--%>
+                </label>
+            </div>
+            <div class="col-2">
+                <label>
+                    Teléfono
+	 
+                    <asp:TextBox runat="server" placeholder="Teléfono" id="TxtTelefono" name="company" tabindex="12"></asp:TextBox>
+                </label>
+            </div>
+            <div class="col-2">
+                <label>
+                    Celular
+	 
+                    <asp:TextBox runat="server" placeholder="Celular" id="TxtCelular" name="name" tabindex="13"></asp:TextBox>
+                </label>
+            </div>
+            <div class="col-2">
+                <label>
+                    Dirección de Residencia
+	 
+                    <asp:TextBox runat="server" placeholder=" Dirección de Residencia" id="TxtDireccionResidencia" name="name" tabindex="14"></asp:TextBox>
+                </label>
+            </div>
+            <div class="col-2">
+                <label>
+                    Ciudad 
+	 
+                    <asp:DropDownList  ID="DDLCiudadCliente" runat="server" style=" width: 133px; text-align: center; margin-left: 54px; margin-right: 33px; height: 22px; color: black; font-weight: 900; opacity: initial;" DataSourceID="SqlDataSource2" DataTextField="NombreCiudad" DataValueField="NombreCiudad">
                     </asp:DropDownList>
 
                     <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:orionConnectionString %>" SelectCommand="SELECT [NombreCiudad] FROM [TblCiudades]"></asp:SqlDataSource>
-
-                </td>
-                
-                <td>
-                    <p style="
-    font-weight: bold;
-    text-align: center;">
-                        Actividad Actual:
-                    </p>
-                  
-                    <asp:DropDownList ID="DDLActividadActual" runat="server" style="width:190px;height: 27px;margin-left: 38px;" DataSourceID="SqlDataSource3" DataTextField="NombreActividad" DataValueField="NombreActividad" Width="190px">
+                    <%--<input placeholder="Ciudad" id="DDLCiudad" name="name" tabindex="15">--%>
+                </label>
+            </div>
+            <div class="col-2">
+                <label>
+                    Actividad Actual
+	 <asp:DropDownList ID="DDLActividadActual" runat="server" style="width:190px;height: 19px;margin-left: 38px; opacity:initial; color:black" DataSourceID="SqlDataSource3" DataTextField="NombreActividad" DataValueField="NombreActividad" Width="190px" Font-Bold="True">
                     </asp:DropDownList>
 
                     <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:orionConnectionString %>" SelectCommand="SELECT [NombreActividad] FROM [ActividadActual]"></asp:SqlDataSource>
+                    <%--<input placeholder=" Actividad Actual" id="DDLActividadActual" name="company" tabindex="16">--%>
+                </label>
+            </div>
 
-                </td>
-                
-            </tr>
-            <tr style="background-color:#2196F3;">
-                <td style =" border-bottom-left-radius:33px; border-bottom-right-radius:33px">
-                    <p style="
-    font-weight: bold;
-    text-align: center;">
-                        Tipo de Cliente:
-                    </p>
-                    <asp:TextBox ID="TxtClasificacion" runat="server" Width="349px" style="text-align: center;margin-left: 26px;background-color:#9E9E9E;margin-right: 33px;" ReadOnly="True"></asp:TextBox>
-                    
-                </td>
-                <td style ="border-bottom-left-radius:33px; border-bottom-right-radius:33px" class="auto-style9">
-                    <p style="
-    font-weight: bold;
-    text-align: center;">
-                        Asesor Asignado   
-                        </p>
-                     <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="AsesorAsignado" DataValueField="AsesorAsignado">
-                        </asp:DropDownList>
-                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:orionConnectionString %>" SelectCommand="SELECT [AsesorAsignado] FROM [Clientes]"></asp:SqlDataSource>
-                </td>
-                <td style ="border-bottom-left-radius:33px; border-bottom-right-radius:33px" >
-                                    <p style="
-    font-weight: bold;
-    text-align: center;">
-                        E-mail:
-<asp:TextBox ID="TxtEmail" runat="server" Width="349px" style="text-align: center;margin-left: 26px;margin-right: 33px;background-color:#9E9E9E" ReadOnly="True"></asp:TextBox>
-                </td>
-            </tr>
-            
-        </table>
-        </section>
+            <div class="col-2">
+                <label>
+                    Tipo de Cliente
 
-        <div style="background-color: #FF9900;height:30px;text-align: center; margin-top:10px; padding-top: 23px;background-color:#9E9E9E;font-weight: bold;font-size: large;color: #9E9E9E;border-top-left-radius: 49px;border-top-right-radius: 49px;width: 928px;margin-left: 228px;margin-right: auto;/* padding-bottom: 18px; */border-bottom-left-radius: 49px;border-bottom-right-radius: 49px;">
-        <a href="#" id="elemento"  >Información Familiar</a>
+                   
+	 
+                    <asp:TextBox runat="server" placeholder="Tipo de Cliente" id="TxtClasificacion" name="name" tabindex="17"></asp:TextBox>
+                </label>
+            </div>
+            <div class="col-2">
+                <label>
+                    Asesor Asignado 
+	 
+                    <asp:DropDownList runat="server" style=" width: 133px; text-align: center; margin-left: 54px; margin-right: 33px; height: 20px; color: black; font-weight: 900; opacity: initial" placeholder="Asesor Asignado" id="DropDownList1" name="name" tabindex="18" DataSourceID="SqlDataSource4" DataTextField="usuarios" DataValueField="usuarios">
+                        <asp:ListItem></asp:ListItem>
+                </asp:DropDownList>
+                     <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:orionConnectionString %>" SelectCommand="Select (Nombre + ' ' + Apellidos) as usuarios from usuarios"></asp:SqlDataSource>
+                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:orionConnectionString %>" SelectCommand="SELECT [AsesorAsignado] FROM [Clientes]"></asp:SqlDataSource>
+                </label>
+            </div>
+            <div class="col-2">
+                <label>
+                    E-mail
+	 
+                    <asp:TextBox runat="server" placeholder=" E-mail" id="TxtEmail" name="E-mail" tabindex="19"></asp:TextBox>
+                </label>
+            </div>
+
+<%--            <div class="informacionFamiliar">
+            </div>
+
+    --%>
+
+
+    
+  <div class="informacionFamiliar">
+
+  </div>
+  
+  <div class="informacionFamiliar2">
+
+  </div>
         
-        </div>
-     
-            <section id="show" style=" display:none">
-<a href="#" id="ocultar" style="
-    margin-left: 152px;
-    font-weight: bold;
-    color: #F44336;
-    font-size: large;">Ocultar</a>
-        <table style="margin-left:113px; width:90%">
-        
-            
-            <tr style="background-color:#2196F3">
-                <td style="
-    border-top-left-radius: 40px;
-    border-top-right-radius: 40px;">
-                    <p style="text-align: center; font-weight: bold;">Nombre del Conyugue: </p>
-                    
 
-                    <asp:TextBox ID="TxtNombreConyugue" runat="server" style="margin-bottom:10px; margin-left: 24%"></asp:TextBox>
-
-                </td>
-                <td  style="
-    border-top-left-radius: 40px;
-    border-top-right-radius: 40px;">
-                    <p style="text-align: center; font-weight: bold;">
-                        Apellidos del Conyugue:
-                    </p>
-                    
-                    <asp:TextBox ID="TxtApellidoConyugue" runat="server" style="margin-bottom:10px; margin-left: 24%"></asp:TextBox>
-
-                </td>
-                
-                     <td style="
-    border-top-left-radius: 40px;
-    border-top-right-radius: 40px;">
-                    <p style="text-align: center; font-weight: bold;">
-                        Fecha Nacimiento Conyugue:
-                       
-                    </p>
-                        
-                    <asp:TextBox ID="TxtFechaNacimientoConyugue" runat="server" style="
-    margin-left: 36%; width:100px"></asp:TextBox>
-                         <%--<div id="datepicker2">
-                    </div>--%>
-                </td>
-           
-            </tr>
-         
-            <tr style="background-color:#2196F3">
-                <td style="
-    border-bottom-left-radius: 40px;
-    border-bottom-right-radius: 40px;" >
-                    <p style="text-align: center; font-weight: bold;">
-                        Edad del Conyugue:
-                    </p>
-                    
-                    <asp:TextBox ID="TxtEdadConyugue" runat="server" style="margin-bottom:10px; margin-left: 41%; width:28px"></asp:TextBox>
-                </td>
-                <td style="
-    border-bottom-left-radius: 40px;
-    border-bottom-right-radius: 40px;">
-                    <p style="text-align: center; font-weight: bold;" >
-                        Profesión del Conyugue:
-                        
-                    </p>
-                    <asp:DropDownList ID="DDLProfesionConyugue" runat="server" DataSourceID="SqlDataSource3" DataTextField="NombreActividad" DataValueField="NombreActividad" style="margin-left:27%;height:26px">
-                        </asp:DropDownList>
-                </td>
-            </tr>
-
-        </table>
-                </section>
-        
-     <div style="background-color: #E91E63;height:30px;text-align: center;padding-top: 23px; margin-top:10px; font-weight: bold;font-size: large;color: #9E9E9E;border-top-left-radius: 49px;border-top-right-radius: 49px;width: 925px;margin-left: 231px ;margin-right: auto;/* padding-bottom: 18px; */border-bottom-left-radius: 49px;border-bottom-right-radius: 49px;">
-        <a href="#" id="visa"  >Pasaporte y Visa</a>
-         <asp:Label ID="LbMensaje" runat="server" Text="Label"></asp:Label>
        
-        </div>
 
-        <section id="showvisa" style=" display:none">
-             <a href="#" id="ocultarvisa" style="
-    margin-left: 152px;
-    font-weight: bold;
-    color: #F44336;
-    font-size: large;">Ocultar</a>
 
-            <table style="width:90%; margin-left:112px">
-                    <tr style="background-color:#2196F3; height: 114px; width:90%; margin-left:112px" >
-                        <td style="
-    border-top-left-radius: 40px;
-    border-top-right-radius: 40px;
-    border-bottom-right-radius:40px;
-    border-bottom-left-radius:40px">
-                            <p style="
-    text-align: center;
-    font-weight: bold;
-">Número:</p>
-                            
-                            <asp:TextBox ID="TxtNumeroPasaporte" runat="server" style="margin-left:29%"></asp:TextBox>
-&nbsp;&nbsp;&nbsp;
-                        </td>
-                        <td style="
-    border-top-left-radius: 40px;
-    border-top-right-radius: 40px;
-     border-bottom-right-radius:40px;
-    border-bottom-left-radius:40px">
-                            <p style="
-    text-align: center;
-    font-weight: bold;
-">
-                                Fecha de Vencimiento de Pasaporte:
-                            </p>
-                            
-                            <asp:TextBox ID="TxtFechaPasaporte" runat="server" Style="margin-left:29%"></asp:TextBox>
-                        </td>
-                        <td style="
-    border-top-left-radius: 40px;
-    border-top-right-radius: 40px;
-     border-bottom-right-radius:40px;
-    border-bottom-left-radius:40px">
-                            <p style="
-    text-align: center;
-    font-weight: bold;
-">
-                                Visa Usa Vigente:
-                            </p>
-                            
-                            <asp:RadioButtonList ID="RBLVisaVigente" runat="server" style="
-    margin-left: auto;
-    margin-right: auto;
-" >
+
+
+            <div class="col-3">
+                <label>
+                    Nombres de Conyugue 
+	 
+                    <asp:TextBox runat="server" placeholder="Nombres de Conyugue" id="TxtNombreConyugue" name="phone" tabindex="20"></asp:TextBox>
+                </label>
+            </div>
+            <div class="col-3">
+                <label>
+                    Apellidos de Conyugue
+	 
+                    <asp:TextBox runat="server" placeholder="Apellidos de Conyugue" id="TxtApellidoConyugue" name="email" tabindex="21"></asp:TextBox>
+                </label>
+            </div>
+
+            <div class="col-3">
+                <label>
+                    Fecha de Nacimiento Conyugue
+	 
+                    <asp:TextBox runat="server" placeholder="Fecha de Nacimiento Conyugue" id="TxtFechaNacimientoConyugue" name="email" tabindex="22"></asp:TextBox>
+                </label>
+            </div>
+
+            <div class="col-3">
+                <label>
+                    Edad de Conyugue
+	 
+                    <asp:TextBox runat="server" placeholder="Edad de Conyugue" id="TxtEdadConyugue" name="email" tabindex="23"></asp:TextBox>
+                </label>
+            </div>
+
+            <div class="col-5">
+                <label>
+                    Profesión del Conyugue
+	 
+                    <asp:DropDownList ID="DDLProfesionConyugue" runat="server" DataSourceID="SqlDataSource3" DataTextField="NombreActividad" DataValueField="NombreActividad" style="margin-left:43%;height:26px; color:black; opacity:initial; font-weight:bold">
+                        </asp:DropDownList>
+                    <%--<input placeholder="Profesión del Conyugue" id="DDLProfesionConyugue" name="email" tabindex="24">--%>
+                </label>
+            </div>
+
+
+          <%--  <div class="informacionVisa">
+            </div>--%>
+
+    
+
+<div class="informacionVisa">
+
+  </div>
+  
+  <div class="informacionVisa2">
+
+  </div>
+
+        
+
+       
+            <div class="col-4">
+                <label>
+                    Número de Pasaporte
+	 
+                    <asp:TextBox runat="server" placeholder="Número de Pasaporte" id="TxtNumeroPasaporte" name="email" tabindex="25"></asp:TextBox>
+                </label>
+            </div>
+
+            <div class="col-4">
+                <label>
+                    Fecha de Vencimiento Pasaporte
+	 
+                    <asp:TextBox runat="server" placeholder="Fecha de Vencimiento" id="TxtFechaPasaporte" name="email" tabindex="26"></asp:TextBox>
+                </label>
+            </div>
+
+            <div class="col-4">
+                <label>
+                    Visa Vigente 
+	 
+                    <asp:DropDownList ID="RBLVisaVigente" runat="server" style=" width: 48px; text-align: center; margin-left: 140px; margin-right: 33px; height: 20px; color: black; font-weight: 900; opacity: initial" >
                                 <asp:ListItem>Si</asp:ListItem>
                                 <asp:ListItem>No</asp:ListItem>
-                            </asp:RadioButtonList>
-                        </td>
-                    </tr>
-            </table>
-           
-        </section>
-           
-     <div style="background-color: white;">
-                <div style="background-color: #009688;height:30px;text-align: center;padding-top: 23px; margin-top:10px; font-weight: bold;font-size: large;color: #9E9E9E;border-top-left-radius: 49px;border-top-right-radius: 49px;width: 922px;margin-left: 235px;margin-right: auto;/* padding-bottom: 18px; */border-bottom-left-radius: 49px;border-bottom-right-radius: 49px;">
+                            </asp:DropDownList>
+              <%--      <input placeholder="Visa Vigente" id="RBLVisaVigente" name="email" tabindex="27">--%>
+                </label>
+            </div>
 
-        <a href="#" id="seguimiento" >Seguimiento Cliente</a>
-         
-        
-       
-        </div>
+
+
+            <div class="seguimientoCliente">
+            </div>
         
 
-        <%--  <section id="showseguimiento" style="display:none">
+  <div class="seguimiento">
 
-             <a href="#" id="ocultarseguimiento" style="
-    margin-left: 152px;
-    font-weight: bold;
-    color: #F44336;
-    font-size: large;">Ocultar</a>--%>
+  </div>
+    <div class="seguimientoCliente2">
+
+  </div>
+        
+
+
+        
+
+        <div class="col-4">
+                <label>No Llamar
+                    <asp:DropDownList ID="RBLNoLlamar" runat="server" style=" width:105px; margin-left:110px; color:black; opacity:initial; font-weight:bold" >
+                        <asp:ListItem></asp:ListItem>
+                        <asp:ListItem>No Llamar</asp:ListItem>
+                    </asp:DropDownList>
+
+                </label>
+
+               
+
+               
+            </div>
               
-        <table style="
-    width: 92%;
-    margin-left: 104px;
-    height: 107px;
-">
-            <tr style="
-    background-color: #2196F3;">
-                <td style="
-    border-top-left-radius: 40px; border-top-right-radius:40px; ">
-                    <asp:RadioButtonList ID="RBLNoLlamar" runat="server" Width="26px" style="
-    margin-left: 41%;">
-                        <asp:ListItem>No llamar</asp:ListItem>
-                    </asp:RadioButtonList>
-                </td>
-                <td style="
-    border-top-left-radius: 40px; border-top-right-radius:40px">
-                    <p style="
-    text-align: center;
-    font-weight: bold;">
-                        Medio de Contacto
-                    </p>
-                   <asp:DropDownList ID="DDLMedioContacto" runat="server" style="margin-left:35%; Height:27px">
+            <div class="col-4">
+                <label>
+                    Medio de Contacto
+
+                  <asp:DropDownList ID="DDLMedioContacto" runat="server" style="width:174px; margin-left:84px; color:black; opacity:initial; font-weight:bold">
+                       <asp:ListItem></asp:ListItem>
                        <asp:ListItem>Correo Electrónico</asp:ListItem>
                        <asp:ListItem>Teléfono Fijo</asp:ListItem>
                        <asp:ListItem>Celular</asp:ListItem>
                        <asp:ListItem>WhatsApp</asp:ListItem>
                        <asp:ListItem>Facebook</asp:ListItem>
                     </asp:DropDownList>
-&nbsp;</td>
-                <td style="
-    border-top-left-radius: 40px; border-top-right-radius:40px; ">
-                   <p style="
-    text-align: center;
-    font-weight: bold;">
-                       Fecha Llamada:
-                      
-                   </p>
-                     <asp:TextBox ID="TxtFechaProximaLlamada" runat="server" Style="margin-left:33%"></asp:TextBox>
-                </td>
-
-            </tr>
-         
-        </table>
-        <table style="
-    width: 92%;
-    margin-left: 104px;
-">
-            
-            <tr style="
-    background-color: #2196F3;">
-                <td style="
-   border-bottom-left-radius:40px; border-bottom-right-radius:40px">
-                    <p style="
-    text-align: center;
-    font-weight: bold;">
-                         Detalle Seguimiento:
-                         
-                    </p>
-
-                    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click1" Text="Agregar Seguimiento" />
-                    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-
-                    <asp:TextBox ID="TxtSeguimiento" runat="server" style="
-    margin-left: 188px;
-    width: 800px;
-    height: 200px;
-    margin-bottom: 45px;" TextMode="MultiLine"></asp:TextBox>
-                    &nbsp;</td>
+                </label>
                 
-            </tr>
-        </table>
-              </section>
+                    
+            </div>
+
+            <div class="col-4">
+                <label>
+                    Fecha de Llamada
+	 
+                    <asp:TextBox runat="server" placeholder="Fecha de Llamada" id="TxtFechaProximaLlamada" name="TxtFechaProximaLlamada"  ></asp:TextBox>
+                </label>
+                
+            </div>
+
+            <div class="col-5">
+                <label>
+                    Escribir Seguimiento
+	 
+                    <asp:TextBox runat="server" placeholder="Escribir Seguimiento" id="TxtSeguimiento" name="email" ></asp:TextBox>
+                </label>
+                
+            </div>
+
+            <div class="col-6">
+                <label>
+                    Detalles Seguimientos
+	 
+                  <asp:GridView runat="server" placeholder="Detalles Seguimientos" id="GridView1" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" >
+                      <FooterStyle BackColor="White" ForeColor="#000066" />
+                      <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
+                      <PagerStyle BackColor="White" ForeColor="#000066" HorizontalAlign="Left" />
+                      <RowStyle ForeColor="#000066" />
+                      <SelectedRowStyle BackColor="#669999" Font-Bold="True" ForeColor="White" />
+                      <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                      <SortedAscendingHeaderStyle BackColor="#007DBB" />
+                      <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                      <SortedDescendingHeaderStyle BackColor="#00547E" />
+                </asp:GridView>
+
+                </label>
+                  
+            </div>
+
+
+        <div class="col-submit">
+          
+            
+            <asp:Button ID="BtnActualizarInfo" runat="server" Text="Actualizar Información" CssClass="submitbtn" OnClick="BtnActualizarInfo_Click" />
+              <asp:Button ID="BtnAgregarSeguimiento" runat="server" OnClick="Button1_Click1" CssClass="submibtn" Text="Agregar Seguimiento" />
+            <asp:Button ID="BtnMonstrarSeguimientos" runat="server" OnClick="BtnSeguimiento_Click" CssClass="submibtn" Text="Mostrar Seguimiento" />
         </div>
-    
-   <div>
-        <img src="../Images/login2.png" style="width: 100%; height: 53px; padding-top: 207px; margin-top: 139px; margin-bottom: -16px; padding-bottom: 3px;" /><asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/Images/1460753968_document-save-as.png" style="
-    margin-top: 2%;
-    padding-top: 26px;
-    position: absolute;
-    margin-left: -53%;
-" OnClick="ImageButton1_Click"/>
-       <p style="
-    margin-top: -14%;
-    position: absolute;
-    margin-left: 48%;
-    font-size: large;
-    font-weight: bold;">
-           Guardar
-       </p>
-&nbsp;</div>
+
+       
+  </form>
  
-    </form>
-    
-<p style="color:#808080; text-align:center">© 2016, Andrés Correa H. Todos los derechos reservados.</p>
+  
+
+
+        <script type="text/javascript">
+            var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+
+            elems.forEach(function (html) {
+                var switchery = new Switchery(html);
+            });
+</script>
+    <div class="footer">
+        
+        <p style="color: white; text-align: center; padding-top: 19px; font-size: larger;">© 2016, Andrés Correa H. Todos los derechos reservados.</p>
+
+    </div>
 </body>
+
+
+
+  <%--  <div class="row">--%>
+
+<%--</div>--%>
+
 </html>

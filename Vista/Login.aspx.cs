@@ -147,11 +147,11 @@ public partial class Vista_Login : System.Web.UI.Page
         }
         else if (log.Verificar() == true)
         {
-            if (DdlTipo.Text == "INVITADO")
+            if (DdlTipo.Text == "ADMINISTRADOR")
             {
 
 
-                //Response.Redirect("Menu.aspx");
+                
                 //Menu inicia = new Menu();
                 //inicia.Res();
                 //this.Hide();
@@ -169,9 +169,9 @@ public partial class Vista_Login : System.Web.UI.Page
                 cookieuser.Value = TxtUsuario.Text;
                 Response.Cookies.Add(cookieuser);
 
-                Response.Redirect("Menu.aspx?parametro=" + TxtUsuario.Text + "  *** " + " Rol: " + DdlTipo.Text);
+                //Response.Redirect("Menu.aspx?parametro=" + TxtUsuario.Text + "  *** " + " Rol: " + DdlTipo.Text);
 
-
+                Response.Redirect("Menu.aspx");
 
 
 
@@ -186,7 +186,7 @@ public partial class Vista_Login : System.Web.UI.Page
                 //inicia.toolStripStatusLabel2.Text = "Usuario: " + textBox1.Text + "  *** " + " Cargo: " + comboBox1.Text.ToString();
                 //inicia.cONDIFENCIALToolStripMenuItem.Enabled = true;
                 //inicia.aGREGARUSUARIOSToolStripMenuItem.Enabled = true;
-                Response.Redirect("Menu.aspx?parametro=" + TxtUsuario.Text + "  *** " + " Rol: " + DdlTipo.Text);
+                //Response.Redirect("Menu.aspx?parametro=" + TxtUsuario.Text + "  *** " + " Rol: " + DdlTipo.Text);
 
             }
 

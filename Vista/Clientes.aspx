@@ -30,6 +30,9 @@
         <tr>
             <td>
 
+                <asp:GridView ID="GridView1" runat="server">
+                </asp:GridView>
+
                 <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/Images/1460409723_preferences-contact-list.png" OnClick="ImageButton1_Click" style="
     margin-left: 540px;
     margin-top: 62px;

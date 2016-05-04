@@ -143,7 +143,7 @@ public class BrokerCliente
 
             EntidadCliente pCliente = new EntidadCliente();
             SqlCommand comando = new SqlCommand(string.Format(
-                "Select Identificacion ,PrimerNombreCliente,SegundoNombreCliente, PrimerApellidoCliente , SegundoApellidoCliente , TipoIdentificacion, Telefono, Celular,Email, Clasificacion, FechaNacimiento,Edad, Genero,EstadoCivil,Nacionalidad,DireccionResidencia,Ciudad,ActividadActual, AsesorAsignado,NombreConyugue,ApellidosConyugue,FechaNacimientoConyugue,EdadConyugue,ProfesionConyugue,NumeroPasaporte,FechaVencimientoPasaporte,VisaVigente,NoLlamarCliente,MedioContactoDelCliente,DetalleSeguimiento,FechaProximaLlamada from Clientes where Identificacion= {0}", pCedCliente), conexion);
+                "Select Identificacion ,PrimerNombreCliente,SegundoNombreCliente, PrimerApellidoCliente , SegundoApellidoCliente , TipoIdentificacion, Telefono, Celular,Email, Clasificacion, FechaNacimiento,Edad, Genero,EstadoCivil,Nacionalidad,DireccionResidencia,Ciudad,ActividadActual, AsesorAsignado,NombreConyugue,ApellidosConyugue,FechaNacimientoConyugue,EdadConyugue,ProfesionConyugue,NumeroPasaporte,FechaVencimientoPasaporte,VisaVigente from Clientes where Identificacion= {0}", pCedCliente), conexion);
 
             SqlDataReader reader = comando.ExecuteReader();
 
@@ -179,10 +179,10 @@ public class BrokerCliente
                 pCliente.NumeroPasaporte = reader.GetString(24);
                 pCliente.FechaVencimientoPasaporte = reader.GetString(25);
                 pCliente.VisaVigente = reader.GetString(26);
-                pCliente.NoLlamarCliente = reader.GetString(27);
-                pCliente.MedioContactoDelCliente = reader.GetString(28);
-                pCliente.DetalleSeguimiento = reader.GetString(29);
-                pCliente.FechaProximaLlamada = reader.GetString(30);
+                //pCliente.NoLlamarCliente = reader.GetString(27);
+                //pCliente.MedioContactoDelCliente = reader.GetString(28);
+                //pCliente.DetalleSeguimiento = reader.GetString(29);
+                //pCliente.FechaProximaLlamada = reader.GetString(30);
 
 
 
@@ -205,9 +205,9 @@ public class BrokerCliente
         int retorno = 0;
         using (SqlConnection Conn = ConexionBD.ObtenerConexion())
         {
-            SqlCommand Comando = new SqlCommand(string.Format("Insert Into TblSeguimientoCliente  (IdentificacionCliente,FechaLlamada , DetalleSeguimientoLlamada  , Usuario) values ('{0}', '{1}','{2}','{3}')",
+            SqlCommand Comando = new SqlCommand(string.Format("Insert Into TblSeguimientoCliente  (IdentificacionCliente,FechaLlamada , DetalleSeguimientoLlamada  , Usuario, MedioContacto, NoLLamar) values ('{0}', '{1}','{2}','{3}', '{4}', '{5}')",
 
-                     cli.Identificacion,cli.FechaProximaLlamada, cli.DetalleSeguimiento, us.Usuario), Conn);
+                     cli.Identificacion,cli.FechaProximaLlamada, cli.DetalleSeguimiento, us.Usuario, cli.MedioContactoDelCliente, cli.NoLlamarCliente), Conn);
 
             retorno = Comando.ExecuteNonQuery();
             Conn.Close();
@@ -215,5 +215,80 @@ public class BrokerCliente
         return retorno;
     }
 
-   
+    public static EntidadCliente ObtenerSeguimientoCliente(string pCedCliente)
+    {
+
+        using (SqlConnection conexion = ConexionBD.ObtenerConexion())
+        {
+            EntidadUsuario us = new EntidadUsuario();
+            EntidadCliente pCliente = new EntidadCliente();
+            SqlCommand comando = new SqlCommand(string.Format(
+                "Select IdentificacionCliente ,FechaLlamada,DetalleSeguimientoLlamada, Usuario , MedioContacto , NoLlamar from TblSeguimientoCliente where IdentificacionCliente= {0}", pCedCliente), conexion);
+
+            SqlDataReader reader = comando.ExecuteReader();
+
+            while (reader.Read())
+            {
+
+
+
+                  pCliente.Identificacion = reader.GetString(0);
+                  pCliente.FechaProximaLlamada = reader.GetString(1);
+                  pCliente.DetalleSeguimiento = reader.GetString(2);
+                  us.Usuario = reader.GetString(3);
+                  pCliente.MedioContactoDelCliente = reader.GetString(4);
+                  pCliente.NoLlamarCliente = reader.GetString(5);
+
+
+
+
+
+
+            }
+            conexion.Close();
+            return pCliente;
+
+        }
+
+    }
+
+    public static List<EntidadCliente> BuscarCliente(string pNumCed)
+    {
+
+        List<EntidadCliente> Lista = new List<EntidadCliente>();
+        using (SqlConnection conexion = ConexionBD.ObtenerConexion())
+        {
+
+            EntidadUsuario us = new EntidadUsuario();
+            EntidadCliente pCliente = new EntidadCliente();
+
+            SqlCommand comando = new SqlCommand(string.Format(
+                "Select IdentificacionCliente,FechaLlamada ,DetalleSeguimientoLlamada,Usuario, MedioContacto from TblSeguimientoCliente where IdentificacionCliente= {0}",pNumCed), conexion);
+
+            SqlDataReader reader = comando.ExecuteReader();
+
+            while (reader.Read())
+            {
+              
+                pCliente.Identificacion = reader.GetString(0);
+                pCliente.FechaProximaLlamada = reader.GetString(1);
+                pCliente.DetalleSeguimiento = reader.GetString(2);
+                us.Usuario = reader.GetString(3);
+                pCliente.MedioContactoDelCliente = reader.GetString(4);
+
+                
+
+
+
+
+                Lista.Add(pCliente);
+
+            }
+            conexion.Close();
+            return Lista;
+
+        }
+
+    }
+
 }
